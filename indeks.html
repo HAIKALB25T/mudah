@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <style>
+    body{
+      background-color: salmon;
+    }
+
+    h3{
+      font-family: arial;
+      text-align: center;
+    }
+    .ouut{
+     text-align: center;
+     background-color: lightblue;
+     width: 200px;
+     margin: 15px;
+     height: 150px;
+     border-radius: 50px;
+     padding: 20px;
+     border: 5px solid navy;
+     display: inline-block;
+  }
+
+
+  </style>
+  <body>
+    <ul id="output"></ul>
+    <script>
+      window.open = getUsers();
+      function getUsers() {
+        fetch("https://swapi.dev/api/people/")
+          .then((response) => response.json())
+          .then((data) => {
+            const obj = data.results;
+            obj.forEach((out) => {
+              
+              output.innerHTML += `
+                      <div class="ouut">  
+                       <h3>
+                       ${out.name}<br>
+                       <br>
+                       birth year: ${out.birth_year}<br>
+                       height: ${out.height}<br>
+                       gender: ${out.gender}<br>
+                       </h3>
+
+              `;
+            });
+          });
+      }
+   </script>
+  </body>
+</html>
+
+
+   
